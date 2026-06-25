@@ -61,13 +61,13 @@ export default function Hero({ isVisible }: HeroProps) {
 
       <div
         className="relative z-10 text-center px-6 max-w-4xl mx-auto"
-        style={{ pointerEvents: 'none' }}
+        style={{ pointerEvents: 'none' as const }}
       >
         {/* Badge */}
         <div
           ref={badgeRef}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber/15 border border-amber/30 mb-8 opacity-0"
-          style={{ pointerEvents: 'auto' }}
+          style={{ pointerEvents: 'auto' as const }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-amber animate-pulse" />
           <span className="text-sm font-medium text-navy uppercase tracking-[0.08em]">Enterprise Internet Infrastructure</span>
@@ -97,7 +97,7 @@ export default function Hero({ isVisible }: HeroProps) {
         </p>
 
         {/* CTAs */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0" style={{ pointerEvents: 'auto' }}>
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0" style={{ pointerEvents: 'auto' as const }}>
           <button
             onClick={handleExploreClick}
             className="px-8 py-3.5 bg-amber text-navy font-semibold rounded-full hover:bg-amber-light hover:scale-[1.02] transition-all duration-200 text-[15px]"
