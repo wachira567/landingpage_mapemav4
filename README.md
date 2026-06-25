@@ -13,8 +13,7 @@ Mapema 151515 Ltd is a Kenyan technology company headquartered in Westlands, Nai
 ## Live URL
 
 <!-- Add your deployed URL here -->
-**Live site**: [https://your-domain-here.com](https://your-domain-here.com)
-
+**Live site**: https://landingpage-mapemav4.vercel.app/
 ## Tech Stack
 
 - React 19 + TypeScript
