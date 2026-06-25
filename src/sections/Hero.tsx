@@ -46,10 +46,7 @@ export default function Hero({ isVisible }: HeroProps) {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleContactClick = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+
 
   const headline1 = 'Earn Rewards with'.split(' ');
   const headline2 = 'Every Airtime Purchase'.split(' ');

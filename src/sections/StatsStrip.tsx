@@ -63,7 +63,7 @@ export default function StatsStrip() {
           {stats.map((stat, i) => (
             <div key={stat.label} className="text-center">
               <span
-                ref={(el) => { numberRefs.current[i] = el; }}
+                ref={(el: HTMLSpanElement | null) => { numberRefs.current[i] = el; }}
                 className="block text-[40px] md:text-[56px] font-display font-bold text-amber leading-tight"
               >
                 0

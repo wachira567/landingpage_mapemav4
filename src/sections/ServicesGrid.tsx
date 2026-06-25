@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Globe, Link2, Cloud, Wifi, Server, Shield } from 'lucide-react';
+import { Globe, Link2, Cloud } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,7 +93,7 @@ export default function ServicesGrid() {
             return (
               <div
                 key={service.title}
-                ref={(el) => { cardsRef.current[i] = el; }}
+                ref={(el: HTMLDivElement | null) => { cardsRef.current[i] = el; }}
                 className="bg-cream-dark rounded-2xl p-8 lg:p-10 opacity-0 cursor-default group hover:-translate-y-1 hover:shadow-card transition-all duration-300"
               >
                 <div className="w-12 h-12 flex items-center justify-center mb-6">

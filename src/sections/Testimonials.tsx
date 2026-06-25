@@ -72,7 +72,7 @@ export default function Testimonials() {
           {benefits.map((b, i) => (
             <div
               key={i}
-              ref={(el) => { cardsRef.current[i] = el; }}
+              ref={(el: HTMLDivElement | null) => { cardsRef.current[i] = el; }}
               className="rounded-2xl p-8 lg:p-10 opacity-0 flex items-center justify-center"
               style={{
                 background: 'rgba(255, 255, 255, 0.04)',

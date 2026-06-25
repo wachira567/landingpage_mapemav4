@@ -1,11 +1,8 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Check } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const coverageAreas = ['Westlands', 'Kilimani', 'Upper Hill', 'Industrial Area', 'Mombasa Road', 'Thika Road'];
 
 export default function NetworkCoverage() {
   const sectionRef = useRef<HTMLDivElement>(null);
