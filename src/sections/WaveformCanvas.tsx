@@ -13,27 +13,30 @@ varying float v_wave;
 void main() {
   vec2 pos = a_pos / u_res;
   vec2 p = pos * 2.0 - 1.0;
-  p.x *= u_res.x / u_res.y;
+
+  // Use aspect-corrected coordinates for calculations
+  float aspect = u_res.x / u_res.y;
+  vec2 p_corrected = p;
+  p_corrected.x *= aspect;
 
   float t = u_time * u_waveSpeed;
 
-  float w1 = sin(p.x * 4.0 + t) * cos(p.y * 3.0 - t * 0.8);
-  float w2 = sin(p.x * 6.0 - t * 1.2) * sin(p.y * 5.0 + t);
-  float w3 = cos((p.x + p.y) * 3.0 + t * 0.5);
+  float w1 = sin(p_corrected.x * 4.0 + t) * cos(p_corrected.y * 3.0 - t * 0.8);
+  float w2 = sin(p_corrected.x * 6.0 - t * 1.2) * sin(p_corrected.y * 5.0 + t);
+  float w3 = cos((p_corrected.x + p_corrected.y) * 3.0 + t * 0.5);
 
   float displacement = w1 * 0.5 + w2 * 0.3 + w3 * 0.2;
 
   vec2 mousePos = (u_mouse / u_res) * 2.0 - 1.0;
-  mousePos.x *= u_res.x / u_res.y;
+  mousePos.x *= aspect;
 
-  float dist = length(p - mousePos);
+  float dist = length(p_corrected - mousePos);
   float mouseEffect = exp(-dist * dist * 8.0) * u_mouseInfluence;
 
-  p.z += displacement * u_waveIntensity + mouseEffect;
-  p.x *= u_res.x / u_res.y;
+  float z = displacement * u_waveIntensity + mouseEffect;
 
-  v_wave = p.z;
-  gl_Position = vec4(p, 1.0);
+  v_wave = z;
+  gl_Position = vec4(p, z, 1.0);
   gl_PointSize = 2.0 + mouseEffect * 4.0;
 }
 `;
